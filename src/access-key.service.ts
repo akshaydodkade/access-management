@@ -115,4 +115,11 @@ export class AccessKeyService {
     );
     return true;
   }
+
+  // fetch logs
+  async viewLogs() {
+    const logs = await this.redisClient.lrange('token_request_logs', 0, -1);
+    const parsedLogs = logs?.map((log) => JSON.parse(log));
+    return parsedLogs;
+  }
 }

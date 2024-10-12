@@ -49,4 +49,10 @@ export class AdminController {
       return { error: 'Key not found or failed to update' };
     }
   }
+
+  @Get('logs')
+  async viewLogs() {
+    const logs = await this.accessKeyService.viewLogs();
+    return logs;
+  }
 }
