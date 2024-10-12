@@ -24,7 +24,7 @@ export class UserController {
     const { isEnabled } = body;
     const result = await this.accessKeyService.toggleKey(key, isEnabled);
     if (!result) {
-      return { error: 'Key not found or failed to updateee' };
+      return { error: 'Key not found or failed to update' };
     }
     return { message: `Key has been ${isEnabled ? 'enabled' : 'disabled'}` };
   }
