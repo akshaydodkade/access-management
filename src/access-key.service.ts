@@ -7,7 +7,7 @@ export class AccessKeyService {
   constructor(@Inject('REDIS_CLIENT') private readonly redisClient: Redis) {}
 
   // generate new access key
-  async generateKey(rateLimit: number, expirationTime: Date): Promise<string> {
+  async createKey(rateLimit: number, expirationTime: Date): Promise<string> {
     const key = this.generateUniqueKey();
 
     const keyData: AccessKey = {

@@ -9,7 +9,7 @@ export class AdminController {
   @Post('create-key')
   async createKey(@Body() createKeyDto: CreateKeyDto) {
     const { rateLimit, expirationTime } = createKeyDto;
-    const newKey = await this.accessKeyService.generateKey(
+    const newKey = await this.accessKeyService.createKey(
       rateLimit,
       expirationTime,
     );
@@ -26,9 +26,9 @@ export class AdminController {
   async deleteKey(@Param('key') key: string) {
     const result = await this.accessKeyService.deleteKey(key);
     if (result) {
-      return { message: 'Key deleted successfully' };
+      return { success: true, message: `Key ${key} deleted successfully` };
     } else {
-      return { error: 'Key not found or failed to delete' };
+      return { success: false, message: `Key ${key} not found` };
     }
   }
 
@@ -44,9 +44,9 @@ export class AdminController {
       expirationTime,
     );
     if (result) {
-      return { message: 'Key updated successfully' };
+      return { success: true, message: `Key ${key} updated successfully` };
     } else {
-      return { error: 'Key not found or failed to update' };
+      return { success: false, message: `Key not found or failed to update` };
     }
   }
 
