@@ -1,6 +1,6 @@
 # Access Key Management System
 
-Related to Token Service[https://github.com/akshaydodkade/token-service]
+Relates to [Token Service](https://github.com/akshaydodkade/token-service)
 
 This project implements a **Microservice-based Access Key Management System** using **NestJS**. It allows administrators to create, update, delete, and list API keys, while users can fetch token information based on their access keys. The system uses **Redis** for in-memory key storage, and includes functionality for rate-limiting and key expiration handling.
 
